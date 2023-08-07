@@ -1,11 +1,10 @@
 import { AnyProcedure, AnyRouter, ProcedureType, TRPCError } from '@trpc/server';
 // eslint-disable-next-line import/no-unresolved
-import type { NodeHTTPCreateContextOption } from '@trpc/server/dist/adapters/node-http/types';
+import type { NodeHTTPCreateContextOption } from '@trpc/server/adapters/node-http';
 // eslint-disable-next-line import/no-unresolved
-import type { BaseHandlerOptions } from '@trpc/server/dist/internals/types';
 import { Unsubscribable, isObservable } from '@trpc/server/observable';
 
-import type { TRPCChromeRequest, TRPCChromeResponse } from '../types';
+import type { TRPCChromeRequest, TRPCChromeResponse, BaseHandlerOptions } from '../types';
 import { getErrorFromUnknown } from './errors';
 
 export type CreateChromeContextOptions = {
