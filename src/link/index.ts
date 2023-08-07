@@ -6,18 +6,25 @@ import type { TRPCChromeRequest, TRPCChromeResponse } from '../types';
 
 export type ChromeLinkOptions = {
   port: chrome.runtime.Port;
+  randomRequestId?: boolean | number;
 };
+
+const randomInteger = (max = 10000) => Math.floor(Math.random() * max);
 
 export const chromeLink = <TRouter extends AnyRouter>(
   opts: ChromeLinkOptions,
 ): TRPCLink<TRouter> => {
   return (runtime) => {
-    const { port } = opts;
+    const { port, randomRequestId } = opts;
     return ({ op }) => {
       return observable((observer) => {
         const listeners: (() => void)[] = [];
 
-        const { id, type, path } = op;
+        const { id: originalId, type, path } = op;
+
+        const id = randomRequestId
+          ? randomInteger(randomRequestId === true ? 10000 : randomRequestId)
+          : originalId;
 
         try {
           const input = runtime.transformer.serialize(op.input);

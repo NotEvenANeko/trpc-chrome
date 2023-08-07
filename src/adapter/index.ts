@@ -196,3 +196,5 @@ export const createChromeHandler = <TRouter extends AnyRouter>(
     listeners.push(() => port.onMessage.removeListener(onMessage));
   });
 };
+
+export { getErrorFromUnknown };

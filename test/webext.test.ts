@@ -45,7 +45,7 @@ test('with query', async () => {
   // content
   const port = chrome.runtime.connect();
   const trpc = createTRPCProxyClient<typeof appRouter>({
-    links: [chromeLink({ port })],
+    links: [chromeLink({ port, randomRequestId: true })],
   });
 
   const data1 = await trpc.echoQuery.query({ payload: 'query1' });
