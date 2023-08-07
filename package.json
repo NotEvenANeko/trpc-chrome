@@ -2,7 +2,7 @@
   "name": "@notevenaneko/trpc-chrome",
   "version": "1.1.1",
   "description": "tRPC adapter for Web Extensions",
-  "authors": "Neko <neko@qwq.icu>, James Berry <jb@jamesbe.com>",
+  "author": "Neko <neko@qwq.icu>, James Berry <jb@jamesbe.com>",
   "private": false,
   "license": "MIT",
   "packageManager": "pnpm@8.6.9",
