@@ -1,10 +1,11 @@
 {
-  "name": "trpc-chrome",
+  "name": "@notevenaneko/trpc-chrome",
   "version": "1.0.0",
   "description": "tRPC adapter for Web Extensions",
-  "author": "James Berry <jb@jamesbe.com>",
+  "authors": "Neko <neko@qwq.icu>, James Berry <jb@jamesbe.com>",
   "private": false,
   "license": "MIT",
+  "packageManager": "pnpm@8.6.9",
   "keywords": [
     "trpc",
     "chrome",
@@ -12,22 +13,30 @@
     "webext",
     "webextension"
   ],
-  "homepage": "https://github.com/jlalmes/trpc-chrome",
-  "repository": "github:jlalmes/trpc-chrome",
-  "bugs": "https://github.com/jlalmes/trpc-chrome/issues",
-  "workspaces": [
-    ".",
-    "examples/with-plasmo"
-  ],
+  "homepage": "https://github.com/NotEvenANeko/trpc-chrome",
+  "repository": "github:notevenaneko/trpc-chrome",
+  "bugs": "https://github.com/NotEvenANeko/trpc-chrome/issues",
+  "exports": {
+    "./adapter": {
+      "import": "./dist/adapter/index.mjs",
+      "types": "./dist/adapter/index.d.mts"
+    },
+    "./link": {
+      "import": "./dist/link/index.mjs",
+      "types": "./dist/link/index.d.mts"
+    }
+  },
   "scripts": {
-    "test": "tsc --noEmit && jest --verbose",
-    "build": "rimraf dist && rimraf adapter && rimraf link && rimraf types && tsc -p tsconfig.build.json && mv dist/* . && rimraf dist"
+    "test": "jest --verbose",
+    "build": "tsup"
   },
   "peerDependencies": {
     "@trpc/client": "^10.0.0",
     "@trpc/server": "^10.0.0"
   },
   "devDependencies": {
+    "@swc/core": "^1.3.74",
+    "@swc/jest": "^0.2.28",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/chrome": "^0.0.203",
     "@types/jest": "^29.2.3",
@@ -44,9 +53,8 @@
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "superjson": "^1.11.0",
-    "ts-jest": "^29.0.3",
-    "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
+    "tsup": "^7.2.0",
     "typescript": "^4.9.3",
     "zod": "^3.19.1"
   }

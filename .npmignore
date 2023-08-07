@@ -1,7 +1,5 @@
 *
-!adapter/**/*
-!link/**/*
-!types/**/*
+!dist/**/*
 !package.json
-!package-lock.json
 !LICENSE
+!README.md
