@@ -1,6 +1,6 @@
 {
   "name": "@notevenaneko/trpc-chrome",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "tRPC adapter for Web Extensions",
   "authors": "Neko <neko@qwq.icu>, James Berry <jb@jamesbe.com>",
   "private": false,
@@ -18,12 +18,12 @@
   "bugs": "https://github.com/NotEvenANeko/trpc-chrome/issues",
   "exports": {
     "./adapter": {
-      "import": "./dist/adapter/index.mjs",
-      "types": "./dist/adapter/index.d.mts"
+      "types": "./dist/adapter/index.d.mts",
+      "import": "./dist/adapter/index.mjs"
     },
     "./link": {
-      "import": "./dist/link/index.mjs",
-      "types": "./dist/link/index.d.mts"
+      "types": "./dist/link/index.d.mts",
+      "import": "./dist/link/index.mjs"
     }
   },
   "scripts": {
